@@ -3,45 +3,69 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>بلال | معرض أعمالي</title>
+  <title>بلال | أداة فحص قوة كلمات المرور</title>
   <style>
-    :root { --bg: #0f172a; --card: #1e293b; --text: #f8fafc; --muted: #94a3b8; --accent: #38bdf8; --border: #334155; }
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, sans-serif; }
-    body { background: var(--bg); color: var(--text); line-height: 1.6; padding: 20px; }
-    .container { max-width: 900px; margin: 0 auto; }
-    header { text-align: center; padding: 60px 20px; border-bottom: 1px solid var(--border); }
-    header h1 { font-size: 2.2rem; margin-bottom: 10px; color: var(--accent); }
-    header p { color: var(--muted); max-width: 600px; margin: 0 auto 25px; font-size: 1.1rem; }
-    .btn { background: var(--accent); color: #0f172a; text-decoration: none; padding: 10px 24px; border-radius: 8px; font-weight: bold; display: inline-block; }
-    .section-title { font-size: 1.5rem; margin: 40px 0 20px; border-right: 4px solid var(--accent); padding-right: 12px; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 20px; }
-    .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
-    .card h3 { margin-bottom: 10px; color: var(--accent); }
-    .card p { color: var(--muted); font-size: 0.95rem; margin-bottom: 15px; }
-    .tag { background: #0f172a; color: var(--accent); font-size: 0.8rem; padding: 4px 10px; border-radius: 20px; margin-left: 5px; display: inline-block; }
-    footer { text-align: center; margin-top: 60px; padding: 20px; color: var(--muted); border-top: 1px solid var(--border); }
+    body { background: #0d1117; color: #c9d1d9; font-family: system-ui, sans-serif; margin: 0; padding: 20px; display: flex; justify-content: center; }
+    .container { max-width: 600px; width: 100%; background: #161b22; border: 1px solid #30363d; border-radius: 12px; padding: 24px; }
+    h1 { color: #58a6ff; margin-top: 0; font-size: 1.5rem; }
+    p { color: #8b949e; line-height: 1.6; }
+    input[type="text"] { width: 100%; box-sizing: border-box; padding: 12px; margin: 16px 0; border-radius: 8px; border: 1px solid #30363d; background: #0d1117; color: #fff; font-size: 1rem; }
+    .bar-bg { background: #30363d; height: 10px; border-radius: 5px; overflow: hidden; margin-bottom: 12px; }
+    .bar-fill { height: 100%; width: 0%; transition: 0.3s; }
+    ul { list-style: none; padding: 0; margin: 16px 0; }
+    li { margin-bottom: 8px; font-size: 0.95rem; }
+    .pass { color: #3fb950; }
+    .fail { color: #f85149; }
+    .btn { display: inline-block; background: #238636; color: #fff; text-decoration: none; padding: 10px 18px; border-radius: 6px; font-weight: bold; margin-top: 10px; }
+    .btn-gh { background: #21262d; border: 1px solid #30363d; margin-right: 8px; }
   </style>
 </head>
 <body>
   <div class="container">
-    <header>
-      <h1>بلال</h1>
-      <p>مهتم بالأمن السيبراني والبرمجة وأنظمة كالي لينكس — هنا أشارك الأدوات والمشاريع التي أقوم ببنائها.</p>
-      <a href="https://github.com/bilal5ggbb-spec" target="_blank" class="btn">حسابي على GitHub</a>
-    </header>
+    <h1>أداة فحص أمان وقوة كلمات المرور</h1>
+    <p>تطوير: <strong>بلال</strong> — جرب الأداة مباشرة عبر المتصفح أو حمّل نسخة Kali Linux.</p>
+    
+    <input type="text" id="pwd" placeholder="اكتب كلمة المرور هنا لفحصها..." oninput="checkPwd()">
+    <div class="bar-bg"><div id="bar" class="bar-fill"></div></div>
+    <div id="status" style="font-weight: bold; margin-bottom: 12px;">الحالة: بانتظار الإدخال</div>
+    
+    <ul>
+      <li id="c-len" class="fail">✗ الطول 8 أحرف على الأقل</li>
+      <li id="c-up" class="fail">✗ حرف كبير (A-Z)</li>
+      <li id="c-low" class="fail">✗ حرف صغير (a-z)</li>
+      <li id="c-num" class="fail">✗ رقم واحد على الأقل (0-9)</li>
+      <li id="c-sym" class="fail">✗ رمز خاص (!@#$...)</li>
+    </ul>
 
-    <h2 class="section-title">أبرز المشاريع والأدوات</h2>
-    <div class="grid">
-      <div class="card">
-        <h3>أداة فحص أمان وقوة كلمات المرور</h3>
-        <p>أداة بواجهة رسومية تعمل على نظام Kali Linux لفحص قوة كلمات المرور وحساب معدل العشوائية (Entropy) والتحقق من معايير الأمان.</p>
-        <span class="tag">Python</span>
-        <span class="tag">Kali Linux</span>
-        <span class="tag">Security</span>
-      </div>
-    </div>
-
-    <footer>جميع الحقوق محفوظة © 2026</footer>
+    <a href="password" download="password.py" class="btn">تحميل أداة Python</a>
+    <a href="https://github.com/bilal5ggbb-spec" class="btn btn-gh">حسابي على GitHub</a>
   </div>
+
+  <script>
+    function checkPwd() {
+      const p = document.getElementById('pwd').value;
+      const checks = [
+        { id: 'c-len', ok: p.length >= 8, text: 'الطول 8 أحرف على الأقل' },
+        { id: 'c-up', ok: /[A-Z]/.test(p), text: 'حرف كبير (A-Z)' },
+        { id: 'c-low', ok: /[a-z]/.test(p), text: 'حرف صغير (a-z)' },
+        { id: 'c-num', ok: /[0-9]/.test(p), text: 'رقم واحد على الأقل (0-9)' },
+        { id: 'c-sym', ok: /[^A-Za-z0-9]/.test(p), text: 'رمز خاص (!@#$...)' }
+      ];
+      let score = 0;
+      checks.forEach(c => {
+        const el = document.getElementById(c.id);
+        el.className = c.ok ? 'pass' : 'fail';
+        el.textContent = (c.ok ? '✓ ' : '✗ ') + c.text;
+        if (c.ok) score += 20;
+      });
+      const bar = document.getElementById('bar');
+      const status = document.getElementById('status');
+      bar.style.width = score + '%';
+      if (!p) { status.textContent = 'الحالة: بانتظار الإدخال'; bar.style.width = '0%'; }
+      else if (score <= 40) { bar.style.background = '#f85149'; status.textContent = 'الحالة: ضعيفة جداً'; }
+      else if (score <= 80) { bar.style.background = '#d29922'; status.textContent = 'الحالة: متوسطة'; }
+      else { bar.style.background = '#3fb950'; status.textContent = 'الحالة: قوية جداً'; }
+    }
+  </script>
 </body>
 </html>
