@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>بلال | معرض أعمالي</title>
+  <style>
+    :root { --bg: #0f172a; --card: #1e293b; --text: #f8fafc; --muted: #94a3b8; --accent: #38bdf8; --border: #334155; }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, sans-serif; }
+    body { background: var(--bg); color: var(--text); line-height: 1.6; padding: 20px; }
+    .container { max-width: 900px; margin: 0 auto; }
+    header { text-align: center; padding: 60px 20px; border-bottom: 1px solid var(--border); }
+    header h1 { font-size: 2.2rem; margin-bottom: 10px; color: var(--accent); }
+    header p { color: var(--muted); max-width: 600px; margin: 0 auto 25px; font-size: 1.1rem; }
+    .btn { background: var(--accent); color: #0f172a; text-decoration: none; padding: 10px 24px; border-radius: 8px; font-weight: bold; display: inline-block; }
+    .section-title { font-size: 1.5rem; margin: 40px 0 20px; border-right: 4px solid var(--accent); padding-right: 12px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 20px; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
+    .card h3 { margin-bottom: 10px; color: var(--accent); }
+    .card p { color: var(--muted); font-size: 0.95rem; margin-bottom: 15px; }
+    .tag { background: #0f172a; color: var(--accent); font-size: 0.8rem; padding: 4px 10px; border-radius: 20px; margin-left: 5px; display: inline-block; }
+    footer { text-align: center; margin-top: 60px; padding: 20px; color: var(--muted); border-top: 1px solid var(--border); }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>بلال</h1>
+      <p>مهتم بالأمن السيبراني والبرمجة وأنظمة كالي لينكس — هنا أشارك الأدوات والمشاريع التي أقوم ببنائها.</p>
+      <a href="https://github.com/bilal5ggbb-spec" target="_blank" class="btn">حسابي على GitHub</a>
+    </header>
+
+    <h2 class="section-title">أبرز المشاريع والأدوات</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>أداة فحص أمان وقوة كلمات المرور</h3>
+        <p>أداة بواجهة رسومية تعمل على نظام Kali Linux لفحص قوة كلمات المرور وحساب معدل العشوائية (Entropy) والتحقق من معايير الأمان.</p>
+        <span class="tag">Python</span>
+        <span class="tag">Kali Linux</span>
+        <span class="tag">Security</span>
+      </div>
+    </div>
+
+    <footer>جميع الحقوق محفوظة © 2026</footer>
+  </div>
+</body>
+</html>
